@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  janus-gateway:
+    image: "canyan/janus-gateway:latest"
+    command: ["/usr/local/bin/janus", "-F", "/usr/local/etc/janus"]
+    ports:
+      - "8188:8188"
+      - "8088:8088"
+      - "8089:8089"
+      - "8889:8889"
+      - "8000:8000"
+      - "7088:7088"
+      - "7089:7089"
+    volumes:
+      - "./janus/janus.jcfg:/usr/local/etc/janus/janus.jcfg"
+      - "./janus/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg"
+      - "./janus/janus.transport.websockets.jcfg:/usr/local/etc/janus/janus.transport.websockets.jcfg"
+
+  web_server:
+    user: "root"
+    image: httpd:alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./html:/usr/local/apache2/htdocs
