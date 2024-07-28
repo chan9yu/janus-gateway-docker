@@ -1,0 +1,18 @@
+general: {
+	configs_folder = "/usr/local/etc/janus"
+	plugins_folder = "/usr/local/lib/janus/plugins"
+	transports_folder = "/usr/local/lib/janus/transports"
+	events_folder = "/usr/local/lib/janus/events"
+	loggers_folder = "/usr/local/lib/janus/loggers"
+	debug_level = 4
+	admin_secret = "janusoverlord"
+}
+
+room-1234: {
+	description = "Demo Room"
+	secret = "adminpwd"
+	publishers = 6
+	bitrate = 128000
+	fir_freq = 10
+	record = false
+}
